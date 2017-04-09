@@ -8,5 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RateController {
 	
-
+	@RequestMapping(value="/rating", method = RequestMethod.POST)
+	public void addRating(@RequestParam(required=false, defaultValue="") String rating) { //http://localhost:8080/rating
+		
+	}
 }
