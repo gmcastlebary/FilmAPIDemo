@@ -1,15 +1,31 @@
 package main.objectModels;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class FilmRating {
-	private final int id;
-	private final float rating;
+	@Resource
+	private int id;
+	@Resource
+	private int rating;
 	
-	public FilmRating( int id, float rating ) {
+	public FilmRating() {
+		this.id = -1;
+		this.rating = -1;
+	}
+	
+	public FilmRating( int id, int rating ) {
 		this.id = id;
 		this.rating = rating;
 	}
 	
+	public void setId( int id ) { this.id = id; }
+	
+	public void setRating( int rating ) { this.rating = rating; }
+	
 	public int getId() { return id;	}
 	
-	public float getRating() { return rating; }
+	public int getRating() { return rating; }
 }

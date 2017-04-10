@@ -1,4 +1,4 @@
-package main;
+package main.objectModels;
 
 public class Greeting {
 	
