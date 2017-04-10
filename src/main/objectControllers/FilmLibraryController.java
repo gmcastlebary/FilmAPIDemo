@@ -14,18 +14,18 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import main.DummyFilmData;
 import main.objectModels.Film;
+import main.objectModels.FilmDO;
 import main.objectModels.FilmRating;
 
 @RestController
 public class FilmLibraryController {
 	
 	@GetMapping("/films")
-	public ArrayList<Film> allFilms(@RequestParam(required=false, defaultValue="") String filmId) { //http://localhost:8080/film?filmId=
-		DummyFilmData data = new DummyFilmData();
+	public ArrayList<FilmDO> allFilms(@RequestParam(required=false, defaultValue="") String filmId) { //http://localhost:8080/film?filmId=
+		FilmCollection data = FilmCollection.getInstance();
 		if( filmId.length() > 0 ) {
-			ArrayList<Film> single = new ArrayList<Film>();
+			ArrayList<FilmDO> single = new ArrayList<FilmDO>();
 			single.add(data.getFilms().get(Integer.parseInt(filmId)-1));
 			return single;
 		}
@@ -34,10 +34,9 @@ public class FilmLibraryController {
 	
 	@PutMapping("/films")
 	public @ResponseBody FilmRating rateFilm(@RequestBody String rating) throws JsonParseException, JsonMappingException, IOException {
-		System.out.println(rating);
 		ObjectMapper mapper = new ObjectMapper();
 		FilmRating myRating = mapper.readValue(rating, FilmRating.class);
-		System.out.println( "Film ID: " + myRating.getId() + "/Rating: " + myRating.getRating());
+		FilmCollection.getInstance().getFilms().get(myRating.getId()-1).rateFilm(myRating.getRating());
 		return myRating;
 	}
 }
