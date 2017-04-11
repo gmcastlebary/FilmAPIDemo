@@ -4,6 +4,7 @@ package main.objectControllers;
 import java.util.ArrayList;
 
 import main.objectModels.FilmDO;
+import main.objectModels.Links;
 
 public class FilmCollection {
 	private static final FilmCollection filmCollection = new FilmCollection();
@@ -136,5 +137,4 @@ public class FilmCollection {
 	}
 	
 	public ArrayList<FilmDO> getFilms() { return filmList; }
-	public void setFilms( ArrayList<FilmDO> filmList ) { this.filmList = filmList; }
 }

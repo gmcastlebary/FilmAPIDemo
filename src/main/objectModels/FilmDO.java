@@ -1,25 +1,20 @@
 package main.objectModels;
 
-import java.util.ArrayList;
-
 public class FilmDO {
-	private int id, year;
-	private String title, description, url_slug;
-	private int[] related_film_ids;
-	private float averageRating;
-	private ArrayList<Integer> ratings;
+	private String type;
+	private int id;
+	private FilmData data;
 	
 	public FilmDO() {
+		this.type = "film";
 		this.id = 0;
-		this.year = 0;
-		this.title = "no title available";
-		this.description = "no description available";
-		this.url_slug = "undefined";
-		this.related_film_ids = new int[] { -1 };
-		this.averageRating = 0.0f;
-		ratings = new ArrayList<Integer>();
+		this.data = new FilmData();
 	}
 
+	public String getType() {
+		return type;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -29,59 +24,59 @@ public class FilmDO {
 	}
 
 	public int getYear() {
-		return year;
+		return data.getYear();
 	}
 	
 	public float getAverageRating() {
-		return averageRating;
+		return data.getAverageRating();
 	}
 
 	public void setYear(int year) {
-		this.year = year;
+		data.setYear(year);
 	}
 
 	public String getTitle() {
-		return title;
+		return data.getTitle();
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		data.setTitle(title);
 	}
 
 	public String getDescription() {
-		return description;
+		return data.getDescription();
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		data.setDescription(description);
 	}
 
 	public String getUrl_slug() {
-		return url_slug;
+		return data.getUrl_slug();
 	}
 
 	public void setUrl_slug(String url_slug) {
-		this.url_slug = url_slug;
+		data.setUrl_slug(url_slug);
 	}
 
 	public int[] getRelated_film_ids() {
-		return related_film_ids;
+		return data.getRelated_film_ids();
 	}
 
 	public void setRelated_film_ids(int[] related_film_ids) {
-		this.related_film_ids = related_film_ids;
+		data.setRelated_film_ids(related_film_ids);
 	}
 	
 	public void setAverageRating(float averageRating) {//for our purposes this will be useful for testing calculations
-		this.averageRating = averageRating;
+		data.setAverageRating(averageRating);
 	}
 	
 	public void rateFilm(int rating) {
-		ratings.add(rating);
+		data.getRatings().add(rating);
 		int newAverage = 0;
-		for(Integer i : ratings) {
+		for(Integer i : data.getRatings()) {
 			newAverage += i; 
 		}
-		averageRating = (float) ((float) newAverage / (float) ratings.size() );
+		data.setAverageRating((float) ((float) newAverage / (float) data.getRatings().size() ));
 	}
 }

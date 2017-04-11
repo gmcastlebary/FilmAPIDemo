@@ -1,34 +1,27 @@
 package main.objectModels;
 
-public class Film {
-	private int id, year;
+import java.util.ArrayList;
+
+public class FilmData {
+	private int year;
 	private String title, description, url_slug;
 	private int[] related_film_ids;
 	private float averageRating;
+	private ArrayList<Integer> ratings;
 	
-	public Film() {
-		this.id = 0;
+	public FilmData() {
+		this.year = 0;
 		this.year = 0;
 		this.title = "no title available";
 		this.description = "no description available";
 		this.url_slug = "undefined";
 		this.related_film_ids = new int[] { -1 };
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.averageRating = 0.0f;
+		ratings = new ArrayList<Integer>();
 	}
 
 	public int getYear() {
 		return year;
-	}
-	
-	public float getAverageRating() {
-		return averageRating;
 	}
 
 	public void setYear(int year) {
@@ -66,8 +59,20 @@ public class Film {
 	public void setRelated_film_ids(int[] related_film_ids) {
 		this.related_film_ids = related_film_ids;
 	}
-	
+
+	public float getAverageRating() {
+		return averageRating;
+	}
+
 	public void setAverageRating(float averageRating) {
 		this.averageRating = averageRating;
+	}
+
+	public ArrayList<Integer> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(ArrayList<Integer> ratings) {
+		this.ratings = ratings;
 	}
 }
