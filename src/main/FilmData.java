@@ -1,19 +1,21 @@
-package main.objectControllers;
-//Created this class to hold dummy film data so that it doesn't clog up RestControllers instantiating films to send back
+package main;
+/*
+* Created by Gabe Castlebary
+* This is meant to be a sort of 'mock' database to hold film data for responses
+*/
 
 import java.util.ArrayList;
 
 import main.objectModels.FilmDO;
-import main.objectModels.Links;
 
-public class FilmCollection {
-	private static final FilmCollection filmCollection = new FilmCollection();
+public class FilmData {
+	private static final FilmData filmData = new FilmData();
 	
-	public static FilmCollection getInstance() { return filmCollection; }
+	public static FilmData getInstance() { return filmData; }
 	
 	private ArrayList<FilmDO> filmList;
 	
-	private FilmCollection() {
+	private FilmData() {
 		filmList = new ArrayList<FilmDO>();
 		FilmDO wonderful = new FilmDO();
 		wonderful.setId(1);

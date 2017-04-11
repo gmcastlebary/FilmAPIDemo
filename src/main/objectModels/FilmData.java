@@ -1,6 +1,11 @@
 package main.objectModels;
 
 import java.util.ArrayList;
+/*
+* Created by Gabe Castlebary
+* Intended to facilitate creation of JSON API standard, however unsuccessfully.  This object is meant to be the 'data'
+* sent back in a object of type 'film'.
+*/
 
 public class FilmData {
 	private int year;

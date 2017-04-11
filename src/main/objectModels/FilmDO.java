@@ -1,5 +1,8 @@
 package main.objectModels;
-
+/*
+* Created by Gabe Castlebary
+* Intended to be the main data object sent back in responses for a film or comprises a list of films.
+*/
 public class FilmDO {
 	private String type;
 	private int id;

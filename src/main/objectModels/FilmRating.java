@@ -1,5 +1,9 @@
 package main.objectModels;
-
+/*
+* Created by Gabe Castlebary
+* Intended to be an object that is included in a payload SENT to the api.  This object is created when the Object Mapper
+* uses the payload as a result of /films PUT request. 
+*/
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;

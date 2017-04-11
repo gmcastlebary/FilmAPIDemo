@@ -1,5 +1,8 @@
 package main.objectControllers;
-
+/*
+* Created by Gabe Castlebary
+* RESTful Controller for Fandor coding challenge 
+*/
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -14,6 +17,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import main.FilmData;
 import main.objectModels.FilmDO;
 import main.objectModels.FilmList;
 import main.objectModels.FilmRating;
@@ -24,7 +28,7 @@ public class FilmLibraryController {
 	
 	@GetMapping("/films")
 	public FilmList allFilms(@RequestParam(required=false, defaultValue="") String filmId) { //http://localhost:8080/film?filmId=
-		FilmCollection data = FilmCollection.getInstance();
+		FilmData data = FilmData.getInstance();
 		if( filmId.length() > 0 ) {
 			ArrayList<FilmDO> single = new ArrayList<FilmDO>();
 			single.add(data.getFilms().get(Integer.parseInt(filmId)-1));
@@ -38,7 +42,7 @@ public class FilmLibraryController {
 	public @ResponseBody FilmRating rateFilm(@RequestBody String rating) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		FilmRating myRating = mapper.readValue(rating, FilmRating.class);
-		FilmCollection.getInstance().getFilms().get(myRating.getId()-1).rateFilm(myRating.getRating());
+		FilmData.getInstance().getFilms().get(myRating.getId()-1).rateFilm(myRating.getRating());
 		return myRating;
 	}
 }
