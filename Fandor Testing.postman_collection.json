@@ -1,0 +1,73 @@
+{
+	"id": "fc2739d1-66a2-d510-5ee6-e69b045420ea",
+	"name": "Fandor Testing",
+	"description": "",
+	"order": [
+		"9b21397e-f53b-f8b7-5f82-f6dce9834e95",
+		"9d2461f1-c2a6-934b-b8a0-4ff14b239e1d",
+		"b6522cf8-48f2-994a-92d0-a7910f6dbcd7"
+	],
+	"folders": [],
+	"timestamp": 1491704739504,
+	"owner": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "9b21397e-f53b-f8b7-5f82-f6dce9834e95",
+			"headers": "",
+			"url": "http://localhost:8080/films",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "fc2739d1-66a2-d510-5ee6-e69b045420ea",
+			"data": null,
+			"dataMode": "params",
+			"name": "get all films",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1491788982612,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "9d2461f1-c2a6-934b-b8a0-4ff14b239e1d",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:8080/films",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1491791100594,
+			"name": "Rate a Film",
+			"description": "Editing the body determines the film ID to be rated.\nid: film_id\nrating: integer value for film rating",
+			"collectionId": "fc2739d1-66a2-d510-5ee6-e69b045420ea",
+			"responses": [],
+			"rawModeData": "{\"id\":1,\"rating\":10}"
+		},
+		{
+			"id": "b6522cf8-48f2-994a-92d0-a7910f6dbcd7",
+			"headers": "",
+			"url": "http://localhost:8080/films?filmId=3",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1491868352407,
+			"name": "Get single Film",
+			"description": "Request used for getting a single film.",
+			"collectionId": "fc2739d1-66a2-d510-5ee6-e69b045420ea",
+			"responses": []
+		}
+	]
+}
